@@ -1,0 +1,52 @@
+/* Full Width Table */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-lg {
+    font-size: 1.2rem; /* Bigger text */
+    width: 100%;
+    min-width: 1200px; /* Ensures it takes full width on large screens */
+}
+
+/* Padding & Text Alignment */
+th, td {
+    padding: 1.5rem !important;
+    text-align: center;
+}
+
+thead th {
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 992px) { /* Tablets */
+    .table-lg {
+        font-size: 1rem;
+        min-width: 900px;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile devices */
+    .table-lg {
+        font-size: 0.9rem;
+        min-width: 100%;
+    }
+
+    th, td {
+        padding: 0.8rem !important; /* Reduce padding on small screens */
+    }
+}
+
+@media (max-width: 576px) { /* Extra small devices */
+    .table-lg {
+        font-size: 0.8rem;
+        min-width: 100%;
+    }
+
+    th, td {
+        padding: 0.5rem !important;
+    }
+}

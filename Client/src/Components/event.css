@@ -1,0 +1,53 @@
+/* Consistent card size & appearance */
+.event-card {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Hover effect: Bring card forward */
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Uniform image styling */
+.event-img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Description styling */
+.event-description {
+  font-size: 14px;
+  color: #555;
+  min-height: 60px;
+}
+
+/* Footer positioning */
+.event-footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: left;
+}
+
+/* "Learn More" link styling */
+.learn-more {
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.learn-more:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
