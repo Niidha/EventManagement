@@ -6,7 +6,14 @@ import { User } from "../Model/user.model.mjs";
 export const createEvent = async (req, res) => {
   try {
     const { title, image, subtitles, services, date, location } = req.body;
-    const createdBy = req.user.id;
+    const userId = req.user.id;
+
+    // Fetch username from User model
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    const createdBy = user.username; // Store username instead of user ID
 
     const event = await Events.create({
       title,
@@ -15,7 +22,7 @@ export const createEvent = async (req, res) => {
       services,
       date,
       location,
-      createdBy,
+      createdBy, // Username is stored here
     });
 
     res.status(201).json({ message: "Event created successfully", event });
@@ -92,15 +99,10 @@ export const updateEvent = async (req, res) => {
 export const deleteEvent = async (req, res) => {
   try {
     const { eventId } = req.params;
-    const userId = req.user.id;
 
     const event = await Events.findById(eventId);
     if (!event) {
       return res.status(404).json({ message: "Event not found" });
-    }
-
-    if (event.createdBy.toString() !== userId) {
-      return res.status(403).json({ message: "Unauthorized! You can only delete your own event" });
     }
 
     await Events.findByIdAndDelete(eventId);
@@ -109,3 +111,4 @@ export const deleteEvent = async (req, res) => {
     res.status(500).json({ message: err.message || "Internal Server Error" });
   }
 };
+

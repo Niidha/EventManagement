@@ -59,7 +59,7 @@ const UserManagement = () => {
     if (!window.confirm(`Are you sure you want to change the role to ${newRole}?`)) return;
 
     try {
-      await api.put(`/admin/users/role/${userId}`, { role: newRole });
+      await api.put(`/admin/role/${userId}`, { role: newRole });
       toast.success("User role updated successfully.");
       fetchUsers();
     } catch (error) {

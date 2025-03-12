@@ -13,6 +13,6 @@ AdminRoute.delete("/users/:userId", Auth, deleteUser);
 AdminRoute.delete("/events/:eventId", Auth, deleteEvent);
 AdminRoute.get("/stats", Auth, getStats);
 AdminRoute.get("/events", Auth, getAllEvents);
-AdminRoute.get("/role/:userId", Auth, updateUserRole);
+AdminRoute.put("/role/:userId", Auth, updateUserRole);
 
 export default AdminRoute

@@ -27,11 +27,11 @@ const EventDetails = () => {
 
     const handleDelete = async () => {
         try {
-            await api.delete(`/delete/${eventId}`, {
+            await api.delete(`/user/delete/${eventId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             alert("Event deleted successfully!");
-            navigate("/events");
+            navigate("/user-dasboard");
         } catch (error) {
             console.error("Error deleting event:", error);
             alert("Failed to delete event.");
